@@ -68,13 +68,25 @@ stages:
         tags: '1.0'
 
     - task: Kubernetes@1
-      name: applyServices
+      name: CreateServicesK8S
       inputs:
         connectionType: 'Kubernetes Service Connection'
         kubernetesServiceEndpoint: 'azure-pipelines-deploy'
         command: 'apply'
         useConfigurationFile: true
         configuration: '$(System.DefaultWorkingDirectory)/services.yml'
+        arguments: ''
+        secretType: 'dockerRegistry'
+        containerRegistryType: 'Azure Container Registry'
+    
+    - task: Kubernetes@1
+      name: CreateDeploymentsK8S
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: 'azure-pipelines-deploy'
+        command: 'apply'
+        useConfigurationFile: true
+        configuration: '$(System.DefaultWorkingDirectory)/deployment.yml'
         arguments: ''
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
