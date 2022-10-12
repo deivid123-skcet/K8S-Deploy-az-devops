@@ -75,6 +75,6 @@ stages:
         command: 'apply'
         useConfigurationFile: true
         configuration: '$(System.DefaultWorkingDirectory)/services.yml'
-        arguments: '-f'
+        arguments: ''
         secretType: 'dockerRegistry'
         containerRegistryType: 'Azure Container Registry'
