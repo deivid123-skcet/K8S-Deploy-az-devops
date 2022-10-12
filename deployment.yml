@@ -63,7 +63,7 @@ spec:
     spec:
       containers:
       - name: php
-        image: 142129/projeto-database:1.0
+        image: 142129/projeto-backend:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
